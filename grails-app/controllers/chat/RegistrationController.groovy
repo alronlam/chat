@@ -10,7 +10,7 @@ class RegistrationController {
 		}else{
 			session.name = name
 			session.ipAddress = getClientIPAddress()
-			render(view: 'chat')
+			redirect(action: 'chat', params: [session: session])
 		}
 	}
 
