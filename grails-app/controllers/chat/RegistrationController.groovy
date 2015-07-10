@@ -9,7 +9,7 @@ class RegistrationController {
 			redirect(action: 'index')
 		}else{
 			session.name = name
-			session.ipAddress = ipAddress
+			session.ipAddress = getClientIPAddress()
 			render(view: 'chat')
 		}
 	}
@@ -21,7 +21,9 @@ class RegistrationController {
 			ipAddress = request.getHeader("X-Forwarded-For")
 
 		if (!ipAddress)
-			ipAddress = request.remoteAddr()
+			ipAddress = request.getRemoteAddr()
+
+		println 'IP ADDRESS is '+ipAddress
 
 		return ipAddress
 	}
