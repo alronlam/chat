@@ -1,6 +1,6 @@
 package chat
 
-class ChatController {
+class RegistrationController {
 
 	def index() { }
 
