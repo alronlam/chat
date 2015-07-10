@@ -23,8 +23,6 @@ class RegistrationController {
 		if (!ipAddress)
 			ipAddress = request.getRemoteAddr()
 
-		println 'IP ADDRESS is '+ipAddress
-
 		return ipAddress
 	}
 }
