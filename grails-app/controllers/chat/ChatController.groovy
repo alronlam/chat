@@ -4,6 +4,11 @@ import message.Message
 
 class ChatController {
 
+	def index(){
+		if (!session.name)
+			redirect(controller: 'registration')
+	}
+
 	def retrieveLatestMessages() {
 		def messages = Message.listOrderByDate(order: 'desc', max:10)
 		[messages:messages.reverse()]
